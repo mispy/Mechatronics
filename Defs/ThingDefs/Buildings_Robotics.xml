@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
-
-
-
   <ThingDef Name="BuildingBase" Abstract="True">
     <category>Building</category>
     <soundBulletHit>BulletImpactMetal</soundBulletHit>
@@ -13,13 +10,11 @@
     <repairEffect>Repair</repairEffect>
   </ThingDef>
 
-
-
   <ThingDef ParentName="BuildingBase">
     <defName>MechaCentipede</defName>
     <eType>Building_Turret</eType>
     <label>Mechanoid Centipede</label>
-    <thingClass>Building_Centipede</thingClass>
+    <thingClass>BuildingCentipede</thingClass>
     <texturePath>Things/Building/Centipede</texturePath>
     <altitudeLayer>Waist</altitudeLayer>
     <maxHealth>140</maxHealth>

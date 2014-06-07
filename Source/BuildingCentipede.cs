@@ -4,14 +4,15 @@ using Verse.AI;
 
 namespace Verse
 {
-    internal class BuildingCentipede : Pawn
+    internal class BuildingCentipede : Building
     {
         public BuildingCentipede() : base() {
         }
 
-        public override void Tick()
+        public override void SpawnSetup()
         {
-            base.Tick();
+            base.SpawnSetup();
+            Log.Message("Centipede setup!");
         }
     }
 }
