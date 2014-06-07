@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundBulletHit>BulletImpactMetal</soundBulletHit>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <surfaceNeeded>Light</surfaceNeeded>
+    <constructionEffect>ConstructMetal</constructionEffect>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>MechaCentipede</defName>
+    <eType>Building_Turret</eType>
+    <label>Mechanoid Centipede</label>
+    <thingClass>Building_Centipede</thingClass>
+    <texturePath>Things/Building/Centipede</texturePath>
+    <altitudeLayer>Waist</altitudeLayer>
+    <maxHealth>140</maxHealth>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li>
+        <compClass>CompExplosive</compClass>
+        <explosiveRadius>3.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+      </li>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>350</basePowerConsumption>
+      </li>
+    </comps>
+    <description>A weak improvised turret that automatically fires at nearby enemies. Explodes when damaged.</description>
+    <flammability>1.0</flammability>
+    <size>(1,1)</size>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.4</fillPercent>
+    <costList>
+      <li>
+        <thingDef>Metal</thingDef>
+        <count>160</count>
+      </li>
+    </costList>
+    <workToBuild>1000</workToBuild>
+    <overdraw>true</overdraw>
+    <combatTargetBuilding>true</combatTargetBuilding>
+    <beauty>Ugly</beauty>
+    <filthLeavings>
+      <li>
+        <thingDef>SlagRubble</thingDef>
+        <count>1</count>
+      </li>
+    </filthLeavings>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <surfaceNeeded>Light</surfaceNeeded>
+    <designationCategory>Security</designationCategory>
+    <placingDisplayRadius>25.9</placingDisplayRadius>
+    <building>
+      <turretGunDef>Gun_TurretImprovised</turretGunDef>
+      <burstCooldownTicks>300</burstCooldownTicks>
+      <turretTopTexturePath>Things/Building/TurretGun_Top</turretTopTexturePath>
+    </building>
+    <designationHotKey>U</designationHotKey>
+  </ThingDef>
+</ThingDefs>
