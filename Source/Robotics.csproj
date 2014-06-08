@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildingCentipede.cs" />
+    <Compile Include="PawnRobot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -59,7 +60,12 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Buildings_Robotics.xml" />
+    <Content Include="..\Defs\PawnKindDefs\PawnKinds_Robotics.xml">
+      <Link>PawnKinds_Robotics.xml</Link>
+    </Content>
+    <Content Include="..\Defs\ThingDefs\Buildings_Robotics.xml">
+      <Link>Buildings_Robotics.xml</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThoughtDefs>
+	<ThoughtDef>
+		<defName>HappyRobot</defName>
+		<label>Happy automaton</label>
+		<description>I'm mindless!</description>
+		<baseHappinessEffect>100</baseHappinessEffect>
+		<duration>10000000</duration>
+		<stackLimit>3</stackLimit>
+		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+	</ThoughtDef>
+</ThoughtDefs>

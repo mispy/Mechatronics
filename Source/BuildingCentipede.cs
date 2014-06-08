@@ -12,7 +12,8 @@ namespace Verse
         public override void SpawnSetup()
         {
             base.SpawnSetup();
-            Log.Message("Centipede setup!");
+            var pawn = PawnGenerator.GeneratePawn("DIYCentipede", Faction.OfColony);
+            GenSpawn.Spawn(pawn, this.Position);
         }
     }
 }

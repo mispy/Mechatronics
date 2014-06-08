@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PawnKindDefs>
+  <PawnKindDef>
+    <defName>DIYCentipede</defName>
+    <label>Centipede</label>
+    <race>DIYCentipede</race>
+    <defaultFactionType>Colony</defaultFactionType>
+    <recruitDifficulty>60</recruitDifficulty>
+    <backstoryCategory>Civil</backstoryCategory>
+    <outfits>
+      <li>
+        <def>Naked</def>
+        <commonality>5</commonality>
+      </li>
+    </outfits>
+  </PawnKindDef>
+</PawnKindDefs>
