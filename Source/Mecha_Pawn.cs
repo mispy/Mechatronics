@@ -95,6 +95,10 @@ namespace Verse
                 this.GetComp<CompExplosive>().StartWick();
             }
 
+            if (Find.TickManager.tickCount % 100 == 0) {
+                this.healthTracker.Heal(1);
+            }
+
             if (!this.stances.FullBodyBusy)
                 this.pather.PatherTick();
             this.drawer.DrawTrackerTick();

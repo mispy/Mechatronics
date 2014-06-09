@@ -158,7 +158,7 @@ $RECYCLE.BIN/
 Assemblies/Assembly-CSharp.dll
 Assemblies/Assembly-UnityScript-firstpass.dll
 Assemblies/Boo.Lang.dll
-Assemblies/Robotics.dll.config
-Assemblies/Robotics.pdb
+Assemblies/Mechatronics.dll.config
+Assemblies/Mechatronics.pdb
 Assemblies/UnityEngine.dll
 Assemblies/UnityScript.Lang.dll

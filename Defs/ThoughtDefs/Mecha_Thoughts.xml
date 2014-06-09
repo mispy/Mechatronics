@@ -3,7 +3,7 @@
 	<ThoughtDef>
 		<defName>HappyRobot</defName>
 		<label>Happy automaton</label>
-		<description>I'm mindless!</description>
+		<description>I'm a tireless, hard-working machine.</description>
 		<baseHappinessEffect>100</baseHappinessEffect>
 		<duration>10000000</duration>
 		<stackLimit>3</stackLimit>
