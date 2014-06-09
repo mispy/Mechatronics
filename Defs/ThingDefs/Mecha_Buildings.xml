@@ -41,7 +41,7 @@
       </li>
       <li>
         <thingDef>MechaPart</thingDef>
-        <count>10</count>
+        <count>5</count>
       </li>
     </costList>
     <workToBuild>1000</workToBuild>
