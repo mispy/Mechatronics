@@ -50,8 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildingCentipede.cs" />
-    <Compile Include="PawnRobot.cs" />
+    <Compile Include="Mecha_BuildingCentipede.cs" />
+    <Compile Include="Mecha_Corpse.cs" />
+    <Compile Include="Mecha_Pawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,11 +61,27 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Defs\PawnKindDefs\PawnKinds_Robotics.xml">
-      <Link>PawnKinds_Robotics.xml</Link>
+    <Content Include="..\Defs\PawnKindDefs\Mecha_PawnKinds.xml">
+      <Link>Mecha_PawnKinds.xml</Link>
     </Content>
-    <Content Include="..\Defs\ThingDefs\Buildings_Robotics.xml">
-      <Link>Buildings_Robotics.xml</Link>
+    <Content Include="..\Defs\RecipeDefs\Mecha_Recipes.xml">
+      <Link>Mecha_Recipes.xml</Link>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Defs\ResearchProjectDefs\Mecha_ResearchProjects.xml">
+      <Link>Mecha_ResearchProjects.xml</Link>
+    </Content>
+    <Content Include="..\Defs\ThingDefs\Mecha_Buildings.xml">
+      <Link>Mecha_Buildings.xml</Link>
+    </Content>
+    <Content Include="..\Defs\ThingDefs\Mecha_Items.xml">
+      <Link>Mecha_Items.xml</Link>
+    </Content>
+    <Content Include="..\Defs\ThingDefs\Mecha_Races.xml">
+      <Link>Mecha_Races.xml</Link>
+    </Content>
+    <Content Include="..\Defs\ThoughtDefs\Mecha_Thoughts.xml">
+      <Link>Mecha_Thoughts.xml</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

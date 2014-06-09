@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>  
+	<ResearchProjectDef>
+		<defName>Mechatronics</defName>
+		<label>Mechatronics</label>
+		<description>Allows you to construct your own mechanoids by reverse-engineering salvaged parts.</description>
+		<totalCost>100000</totalCost>
+		<prerequisites>
+      <li>Machining</li>
+    </prerequisites>
+	</ResearchProjectDef>
+</ResearchProjectDefs>

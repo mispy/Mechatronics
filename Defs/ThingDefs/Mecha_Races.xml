@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
-	<ThingDef Name="BaseRobot" Abstract="True">
+	<ThingDef Name="Mecha_BasePawn" Abstract="True">
 	  <eType>Pawn</eType>
-  	<thingClass>PawnRobot</thingClass>
+  	<thingClass>Mecha_Pawn</thingClass>
 		<category>Pawn</category>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
@@ -20,8 +20,20 @@
 		<drawGUIOverlay>true</drawGUIOverlay>
   </ThingDef>
 
-	<ThingDef ParentName="BaseRobot">
-		<defName>DIYCentipede</defName>
+  <!-- A corpse that removes itself instantly, bit hacky-->
+  <ThingDef>
+    <defName>Mecha_Corpse</defName>
+    <eType>Corpse</eType>
+    <thingClass>Mecha_Corpse</thingClass>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+	<ThingDef ParentName="Mecha_BasePawn">
+		<defName>Mecha_Centipede</defName>
 		<label>Centipede</label>
 		<maxHealth>800</maxHealth>
 		<overdraw>true</overdraw>
@@ -37,40 +49,30 @@
       <thinkTree>Humanoid</thinkTree>
       <humanoid>true</humanoid>
       <mechanoid>true</mechanoid>
-      <walkSpeed>1.0</walkSpeed>
-      <isFlesh>true</isFlesh>
-      <meleeDamage>10</meleeDamage>
+      <walkSpeed>0.25</walkSpeed>
+      <meleeDamage>50</meleeDamage>
       <nameCategory>HumanStandard</nameCategory>
       <hasStory>true</hasStory>
-      <minFoodQuality>Raw</minFoodQuality>
-      <hungerThreshold>30</hungerThreshold>
-      <bodySize>1</bodySize>
-      <soundWounded>Pawn_Human_Wounded</soundWounded>
-      <soundDeath>Pawn_Human_Death</soundDeath>
-      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
-      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
-      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-    </race>
-    <!--<race>
-			<thinkTree>Mechanoid</thinkTree>
-      <walkSpeed>0.25</walkSpeed>
-			<meleeDamage>50</meleeDamage>
       <bodySize>2.0</bodySize>
-      <meatAmountMultiplier>0.3</meatAmountMultiplier>
       <soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
       <soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
       <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
-    </race>-->
+      <corpseDef>Mecha_Corpse</corpseDef>
+    </race>
+    <comps>
+      <li>
+        <compClass>CompExplosive</compClass>
+        <explosiveRadius>1.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+      </li>
+    </comps>
     <killedLeavings>
       <li>
-        <thingDef>Metal</thingDef>
-        <count>50</count>
+        <thingDef>MechaPart</thingDef>
+        <count>5</count>
       </li>
     </killedLeavings>
 	</ThingDef>
-
-
-
 </ThingDefs>

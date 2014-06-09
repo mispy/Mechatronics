@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse.AI;
 
 namespace Verse
 {
-    internal class PawnRobot : Pawn
+    internal class Mecha_Pawn : Pawn
     {
-
         public static Graphic_Apparel CentipedeGraphic = new Graphic_Apparel("Things/Pawn/Mechanoid/Centipede", new Color(1, 1, 1));
 
-        private bool robotReady = false;
+        private bool mechaReady = false;
 
-        public PawnRobot() : base() {
+        public Mecha_Pawn() : base() {
         }
 
         public override void SpawnSetup() {
             base.SpawnSetup();
         }
         
-        // Override everything to be more robot-friendly
-        public void RobotSetup() {            
+        // Override everything to be more mecha-friendly
+        // Many of these cannot be defined in defs yet (or if they can, cause conflicts with colonist-specific code)
+        public void MechaSetup() {            
             // We need graphics to be initialized before we can meddle with them
             if (this.drawer == null || this.drawer.renderer == null || this.drawer.renderer.graphics == null)
                 return;
@@ -28,42 +29,70 @@ namespace Verse
             // dehumanoidize
             this.drawer.renderer.graphics.headGraphic = null;
             //this.apparel = null;
-            this.apparel.SetApparel()
+
             this.drawer.renderer.graphics.nakedGraphic = CentipedeGraphic;
+            if (this.apparel.WornApparelInOrder.Count() > 0) {
+                this.apparel.WornApparelInOrder.First().graphic = CentipedeGraphic;
+            }
 
-            this.psychology.Loyalty.curLevel = 100f;
-            this.psychology.Happiness.curLevel = 100f;
-            this.psychology.Fear.curLevel = 0f;
-            this.food.Food.curLevel = 100f;
-            this.rest.Rest.curLevel = 100f;
-
-            this.story.childhood.title = "DIY Mechanoid";
+            this.story.childhood.title = "None";
             this.story.childhood.baseDesc = "This mechanoid entered service immediately after production, and so never had a childhood. Alternatively, you may view it as being a big dumb happy mecha baby for eternity.";
             this.story.childhood.skillGains = new Dictionary<string, int>();
             this.story.childhood.skillGainsResolved = new Dictionary<SkillDef, int>();
             this.story.childhood.workDisables = WorkTags.None;
 
-            this.story.adulthood.title = "DIY Mechanoid";
-            this.story.adulthood.baseDesc = "A DIY Mechanoid";
-            this.story.adulthood.skillGains = new Dictionary<string, int>();
+            this.story.adulthood.title = "Mechanoid";
+            this.story.adulthood.titleShort = "Mechanoid";
+            this.story.adulthood.baseDesc = "A mechanoid reverse-engineered from marauding self-replicators. Tough and completely tireless, but slow-moving and incapable of sophisticated tasks.";
+            this.story.adulthood.skillGains = new Dictionary<string, int>();           
             this.story.adulthood.skillGainsResolved = new Dictionary<SkillDef, int>();
-            this.story.adulthood.skillGains["Mining"] = 5;
-            this.story.adulthood.skillGains["Shooting"] = 5;
             this.story.adulthood.ResolveReferences();
             this.story.adulthood.workDisables = WorkTags.Artistic | WorkTags.Caring | WorkTags.Cooking | WorkTags.Crafting | WorkTags.Intellectual | WorkTags.ManualSkilled | WorkTags.PlantWork | WorkTags.Social;
 
+            this.story.traits.allTraits = new List<Trait>();
 
+            this.gender = Gender.Sexless;
+            this.story.name.first = "Model C";
+
+            this.RaceDef.isFlesh = false;
+            this.RaceDef.corpseDef = ThingDef.Named("Mecha_Corpse");
+            
+            this.psychology.Loyalty.curLevel = 100f;
+            this.psychology.Happiness.curLevel = 100f;
+            this.psychology.Fear.curLevel = 0f;
+            this.food.Food.curLevel = 100f;
+            this.rest.Rest.curLevel = 100f;
             this.psychology.thoughts.GainThought(ThoughtDef.Named("HappyRobot"));
 
-            this.robotReady = true;
+            foreach (var skill in this.skills.skills) {
+                skill.passion = Passion.None;
+            }
+
+            this.mechaReady = true;
         }
 
         public override void Tick()
         {
-            if (this.robotReady == false) {
-                RobotSetup();
+            if (this.mechaReady == false) {
+                MechaSetup();
+                // These two initial ticks are necessary to initialize data somewhere
                 this.food.FoodTick();
                 this.rest.RestTick();
+            }
+
+            // This hackery is to force the autoundrafter timer to reset
+            // So drafted mechanoids stay like that forever
+            if (this.playerController.Drafted) {
+                var curjob = this.jobs.curJob;
+                this.jobs.curJob = null;
+                this.playerController.Drafted = false;
+                this.playerController.drafter.DrafterTick();
+                this.playerController.Drafted = true;
+                this.jobs.curJob = curjob;
+            }
+
+            if (this.health < 30 && !this.GetComp<CompExplosive>().wickStarted) {
+                this.GetComp<CompExplosive>().StartWick();
             }
 
             if (!this.stances.FullBodyBusy)

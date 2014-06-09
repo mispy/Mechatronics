@@ -11,20 +11,15 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
-    <defName>MechaCentipede</defName>
+    <defName>Mecha_BuildingCentipede</defName>
     <eType>Building_Turret</eType>
     <label>Mechanoid Centipede</label>
-    <thingClass>BuildingCentipede</thingClass>
+    <thingClass>Mecha_BuildingCentipede</thingClass>
     <texturePath>Things/Building/Centipede</texturePath>
     <altitudeLayer>Waist</altitudeLayer>
-    <maxHealth>140</maxHealth>
+    <maxHealth>800</maxHealth>
     <tickerType>Normal</tickerType>
     <comps>
-      <li>
-        <compClass>CompExplosive</compClass>
-        <explosiveRadius>3.9</explosiveRadius>
-        <explosiveDamageType>Bomb</explosiveDamageType>
-      </li>
       <li>
         <compClass>CompForbiddable</compClass>
       </li>
@@ -33,16 +28,20 @@
         <basePowerConsumption>350</basePowerConsumption>
       </li>
     </comps>
-    <description>A weak improvised turret that automatically fires at nearby enemies. Explodes when damaged.</description>
+    <description>A custom Mechanoid.</description>
     <flammability>1.0</flammability>
-    <size>(1,1)</size>
+    <size>(2,3)</size>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.4</fillPercent>
     <costList>
       <li>
         <thingDef>Metal</thingDef>
-        <count>160</count>
+        <count>500</count>
+      </li>
+      <li>
+        <thingDef>MechaPart</thingDef>
+        <count>10</count>
       </li>
     </costList>
     <workToBuild>1000</workToBuild>
@@ -59,11 +58,7 @@
     <surfaceNeeded>Light</surfaceNeeded>
     <designationCategory>Security</designationCategory>
     <placingDisplayRadius>25.9</placingDisplayRadius>
-    <building>
-      <turretGunDef>Gun_TurretImprovised</turretGunDef>
-      <burstCooldownTicks>300</burstCooldownTicks>
-      <turretTopTexturePath>Things/Building/TurretGun_Top</turretTopTexturePath>
-    </building>
     <designationHotKey>U</designationHotKey>
+    <researchPrerequisite>Mechatronics</researchPrerequisite>
   </ThingDef>
 </ThingDefs>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PawnKindDefs>
   <PawnKindDef>
-    <defName>DIYCentipede</defName>
-    <label>Centipede</label>
-    <race>DIYCentipede</race>
+    <defName>Mecha_Centipede</defName>
+    <label>Mechanoid</label>
+    <race>Mecha_Centipede</race>
     <defaultFactionType>Colony</defaultFactionType>
     <recruitDifficulty>60</recruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+	<ThingDef Name="ResourceBase" Abstract="True">
+		<thingClass>ThingResource</thingClass>
+		<label>Unspecified resource</label>
+		<category>Item</category>
+		<eType>Item</eType>
+		<resourceCountPriority>Middle</resourceCountPriority>
+		<useStandardHealth>true</useStandardHealth>
+		<selectable>true</selectable>
+		<maxHealth>100</maxHealth>
+		<altitudeLayer>Item</altitudeLayer>
+		<stackLimit>75</stackLimit>
+		<tradersCarry>true</tradersCarry>
+		<comps>
+			<li><compClass>CompForbiddable</compClass></li>
+		</comps>
+		<beauty>Ugly</beauty>
+		<alwaysHaulable>true</alwaysHaulable>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<rotatable>false</rotatable>
+		<pathCost>15</pathCost>
+	</ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>MechaPart</defName>
+    <label>Mechanoid parts</label>
+    <description>Advanced technology salvaged from self-replicating mechanoids.</description>
+    <texturePath>Things/Item/MechaPart</texturePath>
+    <resourceCountPriority>Middle</resourceCountPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <useStandardHealth>false</useStandardHealth>
+    <alwaysShowCount>true</alwaysShowCount>
+    <basePrice>1000</basePrice>
+    <storeCategories>
+      <li>ResourcesRaw</li>
+    </storeCategories>
+    <stackLimit>400</stackLimit>
+  </ThingDef>
+</Resources>
