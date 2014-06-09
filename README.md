@@ -1,11 +1,6 @@
-# Dwarf Colonists 0.1
+# Mechatronics 0.1
 
-A mod for [RimWorld](http://rimworldgame.com/) which replaces the default colonist graphics with good old-fashioned code page 437 Dwarf Fortress dwarves.
+A mod for [RimWorld](http://rimworldgame.com/) which allows you to construct your own mechanoids by salvaging parts from the marauding self-replicators.
 
-![Dwarves being silly](https://mispy.me/image/dwarfcolonists.jpg)
+![Mechanoids lined up](https://mispy.me/image/rimworld_mechatronics.jpg)
 
-It's pretty silly, but I learned a bit about how the game is written :)
-
-### Installation
-
-See http://rimworldwiki.com/Installing_mods
