@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>DIY Mechanoid</name>
+	<name>Mechatronics</name>
 	<author>Jaiden Mispy</author>
 	<url>https:/mispy.me</url>
-	<targetVersion>Alpha 4E</targetVersion>
-	<description>Replaces your colonists with good old-fashioned code page 437 dwarves.</description>
+	<targetVersion>Alpha 4F</targetVersion>
+	<description>Allows you to construct your own army of mechanoids by reverse-engineering enemies.</description>
 </ModMetaData>
