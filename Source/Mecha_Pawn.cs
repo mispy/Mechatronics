@@ -51,6 +51,8 @@ namespace Verse
 
             this.story.traits.allTraits = new List<Trait>();
 
+            this.playerController.workSettings.InitialSetupFromSkills();
+
             this.gender = Gender.Sexless;
             this.story.name.first = "Model C";
 
