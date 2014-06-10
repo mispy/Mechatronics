@@ -99,9 +99,19 @@ namespace Verse
                 this.jobs.curJob = curjob;
             }
 
-            if (this.health < 30 && !this.GetComp<CompExplosive>().wickStarted) {
-                this.GetComp<CompExplosive>().StartWick();
+            var comp = this.GetComp<CompExplosive>();
+
+            if (comp.wickStarted) {
+                comp.CompTick();
+            } else if (this.health <= 0) {
+                Explosion.DoExplosion(this.Position, 1.9f, DamageTypeDefOf.Bomb, this);
+            } else if (this.health < 50) {
+                comp.StartWick();
             }
+
+            if (this.health < 50) {
+                this.health = 49;
+            } 
 
             if (Find.TickManager.tickCount % 100 == 0) {
                 this.healthTracker.Heal(1);
