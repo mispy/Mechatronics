@@ -49,9 +49,15 @@ namespace Verse
             this.story.adulthood.ResolveReferences();
             this.story.adulthood.workDisables = WorkTags.Artistic | WorkTags.Caring | WorkTags.Cooking | WorkTags.Crafting | WorkTags.Intellectual | WorkTags.ManualSkilled | WorkTags.PlantWork | WorkTags.Social;
 
+            // Mechanoids don't have any traits
             this.story.traits.allTraits = new List<Trait>();
 
             this.playerController.workSettings.InitialSetupFromSkills();
+            
+            foreach (var skill in this.skills.skills) {
+                if (skill.level < 8)
+                    skill.level = 8;
+            }
 
             this.gender = Gender.Sexless;
             this.story.name.first = "Model C";
@@ -122,8 +128,8 @@ namespace Verse
                 this.rest.RestTick();*/
             if (this.prisoner != null)
                 this.prisoner.PrisonerTrackerTick();
-            if (this.skills != null)
-                this.skills.SkillsTick();
+            /*if (this.skills != null)
+                this.skills.SkillsTick();*/
             if (this.thinker != null)
                 this.thinker.MindTick();
             if (this.playerController == null)
