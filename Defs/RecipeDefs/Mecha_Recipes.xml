@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <RecipeDefs>
   <RecipeDef>
-    <defName>ButcherCorpseMechanoid</defName>
+    <defName>Mecha_ButcherCorpseMechanoid</defName>
     <label>Disassemble mechanoid</label>
     <description>Disassembles a dead mechanoid into its component parts.</description>
     <jobString>Disassembling mechanoid.</jobString>

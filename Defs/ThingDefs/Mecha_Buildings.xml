@@ -11,6 +11,56 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
+    <DefName>TableMachining</DefName>
+    <EType>Building_WorkTable</EType>
+    <Label>Machining table</Label>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <Description>A table and tools for assembling and disassembling machine components.</Description>
+    <TexturePath>Things/Building/Production/TableMachining</TexturePath>
+    <CostList>
+      <li>
+        <thingDef>Metal</thingDef>
+        <count>200</count>
+      </li>
+    </CostList>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <WorkToBuild>400</WorkToBuild>
+    <UseStandardHealth>True</UseStandardHealth>
+    <maxHealth>180</maxHealth>
+    <Size>(3,1)</Size>
+    <Overdraw>False</Overdraw>
+    <DesignationCategory>Production</DesignationCategory>
+    <Passability>Impassable</Passability>
+    <hasInteractionSquare>True</hasInteractionSquare>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <itemSurface>True</itemSurface>
+    <recipes>
+      <li>Mecha_ButcherCorpseMechanoid</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>350</basePowerConsumption>
+        <soundPowerOn>PowerOnSmall</soundPowerOn>
+        <soundPowerOff>PowerOffSmall</soundPowerOff>
+      </li>
+      <li>
+        <compClass>CompGlower</compClass>
+        <glowRadius>5</glowRadius>
+        <glowColor>(73,123,138,0)</glowColor>
+      </li>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <researchPrerequisite>Machining</researchPrerequisite>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>Mecha_BuildingCentipede</defName>
     <eType>Building_Turret</eType>
     <label>Mechanoid Centipede</label>
