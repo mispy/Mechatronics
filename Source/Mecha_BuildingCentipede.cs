@@ -26,6 +26,8 @@ namespace Verse
                 pawn.equipment.AddEquipment(weapon);
                 GenSpawn.Spawn(pawn, this.Position);
                 this.DeSpawn();
+                PowerNetManager.Notify_ConnectorDespawned(this);
+                Find.MapDrawer.MapChanged(this.Position, MapChangeType.PowerGrid, true, false);
             }
         }
     }
