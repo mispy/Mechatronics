@@ -4,8 +4,9 @@
     <defName>Mecha_Centipede</defName>
     <label>Mechanoid</label>
     <race>Mecha_Centipede</race>
+    <pointsCost>100</pointsCost>    
     <defaultFactionType>Colony</defaultFactionType>
-    <recruitDifficulty>60</recruitDifficulty>
+    <baseRecruitDifficulty>60</baseRecruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>
     <outfits>
       <li>

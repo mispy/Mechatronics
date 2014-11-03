@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using RimWorld;
 using Verse.AI;
 
 namespace Verse
@@ -15,9 +16,9 @@ namespace Verse
         {
             base.Tick();
 
-            if (this.connectedToTransmitter != null) {
+            if (this.PowerComp.connectParent != null) {
                 var pawn = PawnGenerator.GeneratePawn("Mecha_Centipede", Faction.OfColony);
-                pawn.age = 1;
+                //pawn.age = 1; 
                 var source = new List<ThingDef>();
                 source.Add(ThingDef.Named("Gun_ChargeBlaster"));
                 source.Add(ThingDef.Named("Gun_InfernoCannon"));

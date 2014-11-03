@@ -7,9 +7,8 @@
     <jobString>Disassembling mechanoid.</jobString>
     <workAmount>400</workAmount>
     <workEffect>ButcherMechanoid</workEffect>
-    <workTimeSkillNeed>ButcheryMechanoidTime</workTimeSkillNeed>
-    <efficiencySkillNeed>ButcheryMechanoidEfficiency</efficiencySkillNeed>
-    <sustainerSoundDef>Recipe_ButcherCorpseMechanoid</sustainerSoundDef>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+    <efficiencyStat>ButcheryMechanoidEfficiency</efficiencyStat>    <sustainerSoundDef>Recipe_ButcherCorpseMechanoid</sustainerSoundDef>
     <ingredients>
       <li>
         <filter>
@@ -21,10 +20,7 @@
       </li>
     </ingredients>
     <products>
-      <li>
-        <thingDef>MechaPart</thingDef>
-        <count>5</count>
-      </li>
+      <MechaPart>5</MechaPart>
     </products>
     <fixedIngredientFilter>
       <categories>

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using RimWorld;
 using Verse.AI;
 
 namespace Verse
 {
     internal class Mecha_Pawn : Pawn
     {
-        public static Graphic_Apparel CentipedeGraphic = new Graphic_Apparel("Things/Pawn/Mechanoid/Centipede", new Color(1, 1, 1));
+        //public static Graphic_Appearances CentipedeGraphic = new Graphic_Appearances("Things/Pawn/Mechanoid/Centipede", new Color(1, 1, 1));
 
         private bool mechaReady = false;
 
@@ -30,9 +31,10 @@ namespace Verse
             this.drawer.renderer.graphics.headGraphic = null;
             //this.apparel = null;
 
-            this.drawer.renderer.graphics.nakedGraphic = CentipedeGraphic;
+            //this.drawer.renderer.graphics.nakedGraphic = CentipedeGraphic;
             if (this.apparel.WornApparelInOrder.Count() > 0) {
-                this.apparel.WornApparelInOrder.First().graphic = CentipedeGraphic;
+                var apparel = this.apparel.WornApparelInOrder.First();
+                // apparel.Graphic = CentipedeGraphic;
             }
 
             this.story.childhood.title = "None";
@@ -50,9 +52,9 @@ namespace Verse
             this.story.adulthood.workDisables = WorkTags.Artistic | WorkTags.Caring | WorkTags.Cooking | WorkTags.Crafting | WorkTags.Intellectual | WorkTags.ManualSkilled | WorkTags.PlantWork | WorkTags.Social;
 
             // Mechanoids don't have any traits
-            this.story.traits.allTraits = new List<Trait>();
+            //this.story.traits.allTraits = new List<Trait>();
 
-            this.playerController.workSettings.InitialSetupFromSkills();
+            //this.playerController.workSettings.InitialSetupFromSkills();
             
             foreach (var skill in this.skills.skills) {
                 if (skill.level < 8)
@@ -62,15 +64,13 @@ namespace Verse
             this.gender = Gender.Sexless;
             this.story.name.first = "Model C";
 
-            this.RaceDef.isFlesh = false;
-            this.RaceDef.corpseDef = ThingDef.Named("Mecha_Corpse");
-            
-            this.psychology.Loyalty.curLevel = 100f;
-            this.psychology.Happiness.curLevel = 100f;
-            this.psychology.Fear.curLevel = 0f;
-            this.food.Food.curLevel = 100f;
-            this.rest.Rest.curLevel = 100f;
-            this.psychology.thoughts.GainThought(ThoughtDef.Named("HappyRobot"));
+            this.RaceProps.isFlesh = false;
+            this.RaceProps.corpseDef = ThingDef.Named("Mecha_Corpse");
+
+            this.psychology.mood.CurLevel = 50f;
+            this.food.Food.CurLevel = 100f;
+            this.rest.Rest.CurLevel = 100f;
+            this.psychology.thoughts.TryGainThought(ThoughtDef.Named("HappyRobot"));
 
             foreach (var skill in this.skills.skills) {
                 skill.passion = Passion.None;
@@ -104,7 +104,7 @@ namespace Verse
             if (comp.wickStarted) {
                 comp.CompTick();
             } else if (this.health <= 0) {
-                Explosion.DoExplosion(this.Position, 1.9f, DamageTypeDefOf.Bomb, this);
+                GenExplosion.DoExplosion(this.Position, 1.9f, DamageTypeDefOf.Bomb, this);
             } else if (this.health < 50) {
                 comp.StartWick();
             }
@@ -114,7 +114,7 @@ namespace Verse
             } 
 
             if (Find.TickManager.tickCount % 100 == 0) {
-                this.healthTracker.Heal(1);
+                //this.healthTracker.Heal(1);
             }
 
             if (!this.stances.FullBodyBusy)

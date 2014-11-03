@@ -4,7 +4,7 @@
 		<defName>HappyRobot</defName>
 		<label>Happy automaton</label>
 		<description>I'm a tireless, hard-working machine.</description>
-		<baseHappinessEffect>100</baseHappinessEffect>
+		<baseMoodEffect>100</baseMoodEffect>
 		<duration>10000000</duration>
 		<stackLimit>3</stackLimit>
 		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>

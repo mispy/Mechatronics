@@ -2,31 +2,30 @@
 <ThingDefs>
   <ThingDef Name="BuildingBase" Abstract="True">
     <category>Building</category>
-    <soundBulletHit>BulletImpactMetal</soundBulletHit>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
-    <surfaceNeeded>Light</surfaceNeeded>
-    <constructionEffect>ConstructMetal</constructionEffect>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+    <ThingDef ParentName="BuildingBase">
     <DefName>TableMachining</DefName>
     <EType>Building_WorkTable</EType>
-    <Label>Machining table</Label>
+    <label>machining table</label>
     <ThingClass>Building_WorkTable</ThingClass>
     <Description>A table and tools for assembling and disassembling machine components.</Description>
-    <TexturePath>Things/Building/Production/TableMachining</TexturePath>
+    <graphicPathSingle>Things/Building/Production/TableMachining</graphicPathSingle>
     <CostList>
-      <li>
-        <thingDef>Metal</thingDef>
-        <count>200</count>
-      </li>
+      <Metal>200</Metal>
     </CostList>
     <AltitudeLayer>Waist</AltitudeLayer>
-    <WorkToBuild>400</WorkToBuild>
     <UseStandardHealth>True</UseStandardHealth>
-    <maxHealth>180</maxHealth>
+    <statBases>
+      <WorkToBuild>1300</WorkToBuild>
+      <MaxHealth>180</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
     <Size>(3,1)</Size>
     <Overdraw>False</Overdraw>
     <DesignationCategory>Production</DesignationCategory>
@@ -34,7 +33,7 @@
     <hasInteractionSquare>True</hasInteractionSquare>
     <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
     <itemSurface>True</itemSurface>
-    <recipes>
+    <recipes>      
       <li>Mecha_ButcherCorpseMechanoid</li>
     </recipes>
     <inspectorTabs>
@@ -65,9 +64,14 @@
     <eType>Building_Turret</eType>
     <label>Mechanoid Centipede</label>
     <thingClass>Mecha_BuildingCentipede</thingClass>
-    <texturePath>Things/Building/Centipede</texturePath>
+    <graphicPathSingle>Things/Building/Centipede</graphicPathSingle>
     <altitudeLayer>Waist</altitudeLayer>
-    <maxHealth>800</maxHealth>
+    <statBases>
+      <MaxHealth>800</MaxHealth>
+      <Flammability>1.0</Flammability>
+      <WorkToBuild>5000</WorkToBuild>
+      <Beauty>-60</Beauty>
+    </statBases>
     <tickerType>Normal</tickerType>
     <comps>
       <li>
@@ -79,35 +83,23 @@
       </li>
     </comps>
     <description>A custom Mechanoid.</description>
-    <flammability>1.0</flammability>
     <size>(2,3)</size>
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.4</fillPercent>
-    <costList>
-      <li>
-        <thingDef>Metal</thingDef>
-        <count>500</count>
-      </li>
-      <li>
-        <thingDef>MechaPart</thingDef>
-        <count>5</count>
-      </li>
-    </costList>
-    <workToBuild>1000</workToBuild>
     <overdraw>true</overdraw>
+    <costList>
+      <Metal>500</Metal>
+      <MechaPart>5</MechaPart>
+    </costList>
     <combatTargetBuilding>true</combatTargetBuilding>
-    <beauty>Ugly</beauty>
     <filthLeavings>
-      <li>
-        <thingDef>SlagRubble</thingDef>
-        <count>1</count>
-      </li>
+      <SlagRubble>1</SlagRubble>
     </filthLeavings>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <surfaceNeeded>Light</surfaceNeeded>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
-    <placingDisplayRadius>25.9</placingDisplayRadius>
+    <specialDisplayRadius>25.9</specialDisplayRadius>
     <designationHotKey>U</designationHotKey>
     <researchPrerequisite>Mechatronics</researchPrerequisite>
   </ThingDef>

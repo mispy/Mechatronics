@@ -1,41 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Resources>
-	<ThingDef Name="ResourceBase" Abstract="True">
-		<thingClass>ThingResource</thingClass>
-		<label>Unspecified resource</label>
-		<category>Item</category>
-		<eType>Item</eType>
-		<resourceCountPriority>Middle</resourceCountPriority>
-		<useStandardHealth>true</useStandardHealth>
-		<selectable>true</selectable>
-		<maxHealth>100</maxHealth>
-		<altitudeLayer>Item</altitudeLayer>
-		<stackLimit>75</stackLimit>
-		<tradersCarry>true</tradersCarry>
-		<comps>
-			<li><compClass>CompForbiddable</compClass></li>
-		</comps>
-		<beauty>Ugly</beauty>
-		<alwaysHaulable>true</alwaysHaulable>
-		<drawGUIOverlay>true</drawGUIOverlay>
-		<rotatable>false</rotatable>
-		<pathCost>15</pathCost>
-	</ThingDef>
-
+  <ThingDef Name="ResourceBase" Abstract="True">
+    <thingClass>ThingWithComponents</thingClass>
+    <label>unspecified resource</label>
+    <category>Item</category>
+    <eType>Item</eType>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useStandardHealth>true</useStandardHealth>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>75</stackLimit>
+    <tradersCarry>true</tradersCarry>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+    </comps>
+    <alwaysHaulable>true</alwaysHaulable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <rotatable>false</rotatable>
+    <pathCost>15</pathCost>
+  </ThingDef>
+  
   <ThingDef ParentName="ResourceBase">
     <defName>MechaPart</defName>
     <label>Mechanoid parts</label>
     <description>Advanced technology salvaged from self-replicating mechanoids.</description>
-    <texturePath>Things/Item/MechaPart</texturePath>
-    <resourceCountPriority>Middle</resourceCountPriority>
+    <graphicPathFolderRandom>Things/Item/MechaPart</graphicPathFolderRandom>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Metal_Drop</soundDrop>
+    <baseMarketValue>300</baseMarketValue>
     <useStandardHealth>false</useStandardHealth>
-    <alwaysShowCount>true</alwaysShowCount>
-    <basePrice>1000</basePrice>
     <storeCategories>
       <li>ResourcesRaw</li>
     </storeCategories>
-    <stackLimit>400</stackLimit>
+    <stuffProps>
+      <color>(102,102,105)</color>
+      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <statFactors>
+        <MarketValue>1</MarketValue>
+        <MaxHealth>1</MaxHealth>
+        <Beauty>1</Beauty>
+        <Flammability>0.2</Flammability>
+      </statFactors>
+    </stuffProps>
   </ThingDef>
 </Resources>
