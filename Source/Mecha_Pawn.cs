@@ -61,7 +61,7 @@ namespace Verse
                     skill.level = 8;
             }
 
-            this.gender = Gender.Sexless;
+            //this.gender = Gender.Sexless;
             this.story.name.first = "Model C";
 
             this.RaceProps.isFlesh = false;
@@ -77,74 +77,6 @@ namespace Verse
             }
 
             this.mechaReady = true;
-        }
-
-        public override void Tick()
-        {
-            if (this.mechaReady == false) {
-                MechaSetup();
-                // These two initial ticks are necessary to initialize data somewhere
-                this.food.FoodTick();
-                this.rest.RestTick();
-            }
-
-            // This hackery is to force the autoundrafter timer to reset
-            // So drafted mechanoids stay like that forever
-            if (this.playerController.Drafted) {
-                var curjob = this.jobs.curJob;
-                this.jobs.curJob = null;
-                this.playerController.Drafted = false;
-                this.playerController.drafter.DrafterTick();
-                this.playerController.Drafted = true;
-                this.jobs.curJob = curjob;
-            }
-
-            var comp = this.GetComp<CompExplosive>();
-
-            if (comp.wickStarted) {
-                comp.CompTick();
-            } else if (this.health <= 0) {
-                GenExplosion.DoExplosion(this.Position, 1.9f, DamageTypeDefOf.Bomb, this);
-            } else if (this.health < 50) {
-                comp.StartWick();
-            }
-
-            if (this.health < 50) {
-                this.health = 49;
-            } 
-
-            if (Find.TickManager.tickCount % 100 == 0) {
-                //this.healthTracker.Heal(1);
-            }
-
-            if (!this.stances.FullBodyBusy)
-                this.pather.PatherTick();
-            this.drawer.DrawTrackerTick();
-            this.healthTracker.HealthTick();
-            this.stances.StanceTrackerTick();
-            if (this.equipment != null)
-                this.equipment.EquipmentTrackerTick();
-            if (this.jobs != null)
-                this.jobs.JobTrackerTick();
-            if (this.carryHands != null)
-                this.carryHands.CarryHandsTick();
-            /*if (this.talker != null)
-                this.talker.TalkTrackerTick();
-            if (this.psychology != null)
-                this.psychology.PsychologyTick();
-            if (this.food != null)
-                this.food.FoodTick();
-            if (this.rest != null)
-                this.rest.RestTick();*/
-            if (this.prisoner != null)
-                this.prisoner.PrisonerTrackerTick();
-            /*if (this.skills != null)
-                this.skills.SkillsTick();*/
-            if (this.thinker != null)
-                this.thinker.MindTick();
-            if (this.playerController == null)
-                return;
-            this.playerController.PlayerControllerTick();
         }
     }
 }

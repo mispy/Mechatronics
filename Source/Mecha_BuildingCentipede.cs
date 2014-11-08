@@ -19,12 +19,12 @@ namespace Verse
             if (this.PowerComp.connectParent != null) {
                 var pawn = PawnGenerator.GeneratePawn("Mecha_Centipede", Faction.OfColony);
                 //pawn.age = 1; 
-                var source = new List<ThingDef>();
+                /*var source = new List<ThingDef>();
                 source.Add(ThingDef.Named("Gun_ChargeBlaster"));
                 source.Add(ThingDef.Named("Gun_InfernoCannon"));
                 source.Add(ThingDef.Named("Gun_Minigun"));
                 var weapon = (Equipment) ThingMaker.MakeThing(GenLinq.RandomElement<ThingDef>(source));
-                pawn.equipment.AddEquipment(weapon);
+                pawn.equipment.AddEquipment(weapon);*/
                 GenSpawn.Spawn(pawn, this.Position);
                 this.DeSpawn();
                 PowerNetManager.Notify_ConnectorDespawned(this);

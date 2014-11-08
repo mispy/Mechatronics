@@ -23,12 +23,12 @@
   <ThingDef ParentName="Mecha_BasePawn" Name="Mecha_BaseMechanoid" Abstract="True">
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <race>
-      <mechanoid>true</mechanoid>
+      <!--<mechanoid>true</mechanoid>
       <hasStory>false</hasStory>
       <needsRest>false</needsRest>
       <hasGenders>false</hasGenders>
       <isFlesh>false</isFlesh>
-      <diet>NeverEats</diet>
+      <diet>NeverEats</diet>-->
     </race>
   </ThingDef>
 
@@ -65,11 +65,35 @@
       </li>
     </verbs>
     <race>
-      <thinkTree>Mechanoid</thinkTree>
+      <thinkTree>Humanoid</thinkTree>
+      <humanoid>true</humanoid>
+      <isFlesh>true</isFlesh>
+      <hasLeather>true</hasLeather>
+      <leatherColor>(211,194,143)</leatherColor>
+      <nameCategory>HumanStandard</nameCategory>
+      <hasStory>true</hasStory>
+      <minFoodQuality>Raw</minFoodQuality>
+      <body>Human</body>
+      <bodySize>1</bodySize>
+      <healthScale>1</healthScale>
+      <diet>Omnivorous</diet>
+      <soundWounded>Pawn_Human_Wounded</soundWounded>
+      <soundDeath>Pawn_Human_Death</soundDeath>
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+      <!--
+      <thinkTree>Humanoid</thinkTree>
+      <humanoid>true</humanoid>
+      <nameCategory>HumanStandard</nameCategory>
+      <hasStory>true</hasStory>
       <body>MechanicalCentipede</body>
       <bodySize>2.0</bodySize>
-      <healthScale>1.3</healthScale>
-      <meatAmountMultiplier>0.3</meatAmountMultiplier>
+      <soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
+      <soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
+      <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
       <soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
       <soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
       <soundCall>Pawn_Mech_Centipede_Call</soundCall>
@@ -81,7 +105,7 @@
       <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>      
-      <corpseDef>Mecha_Corpse</corpseDef>
+      <corpseDef>Mecha_Corpse</corpseDef>-->
     </race>
     <recipes>
       <li>ShutDownMechanoid</li>
